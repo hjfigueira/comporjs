@@ -1,0 +1,27 @@
+{
+  "name": "comporjs",
+  "version": "0.0.1",
+  "description": "A lib for creating dynamic html elements with ease",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjfigueira/comporjs.git"
+  },
+  "keywords": [
+    "html",
+    "create",
+    "dom",
+    "make",
+    "elements",
+    "element"
+  ],
+  "author": "hjfigueira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hjfigueira/comporjs/issues"
+  },
+  "homepage": "https://github.com/hjfigueira/comporjs#readme"
+}
