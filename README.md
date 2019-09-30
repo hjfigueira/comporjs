@@ -44,3 +44,6 @@ itseft you should use the ".el" property (I'm still thinking in a better way...)
 ### notes
 The intent of this repo is to present the idea, fell free to comment and help me with the 
 formulation of a "production ready" version. Thanks :)
+
+Last but not least, this repo is inspired by the "create element" method developed by https://github.com/marxluz.
+Teammate and outstanding programmer.
