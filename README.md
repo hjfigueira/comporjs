@@ -2,7 +2,7 @@
 A simple library for creating html with javascript keeping the visual similarity 
 with the generated code.
 
-##usage
+## usage
 
 ### template
 The lib exposes two functions, e() and block(), those functions are used in a nested way 
