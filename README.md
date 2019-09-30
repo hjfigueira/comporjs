@@ -32,7 +32,8 @@ let template = block('div.container-fluid',
 ```
 
 ### references
-If you need to access any tag, you can use the ref() function of a block.
+If you need to access any tag, you can use the ref() function of a block. The identifier of a reference
+is a string, second parameter of the e() call. Like 'btnFacebook' in the code above and bellow.
 
 This will return to you the wrapper that envolves the plain DOM node. To get the node
 itseft you should use the ".el" property (I'm still thinking in a better way...)
