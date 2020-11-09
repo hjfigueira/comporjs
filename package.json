@@ -2,7 +2,7 @@
   "name": "comporjs",
   "version": "0.0.1",
   "description": "A lib for creating dynamic html elements with ease",
-  "main": "dist/compor.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "test"
   },
