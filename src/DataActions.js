@@ -9,7 +9,7 @@ export class DOMOperation {
 
     execute(element)
     {
-        this.modifier.call(null, element, this.params);
+        this.modifier.call(null, element, ...this.params);
     }
 
 }

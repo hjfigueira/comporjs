@@ -35,7 +35,7 @@ export default class BlockElement
             {
                 const element = this.ref(itemIndex);
                 let operations = config[itemIndex];
-
+                
                 element.set(operations);
             }
         }

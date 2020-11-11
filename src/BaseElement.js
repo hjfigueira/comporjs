@@ -1,9 +1,10 @@
 import {DOMOperation} from "./DataActions";
+import {text} from "comporjs";
 
 export default class BaseElement
 {
 
-    constructor(tagName, children)
+    constructor(block, tagName, children)
     {
         this.el = null;
         this.children = {};
@@ -13,9 +14,11 @@ export default class BaseElement
         const ref = children[0];
 
         if(Array.isArray(ref) && ref[0] instanceof DOMOperation){
-            this.set(ref);
+            this.set(...ref);
+            children.shift();
         }else if(typeof ref === 'string'){
-            this.block.setReference(ref, this);
+            block.setReference(ref, this);
+            children.shift();
         }
 
         if(!!children){
@@ -72,10 +75,13 @@ export default class BaseElement
 
     set(...operations)
     {
-        for( const operation of operations ) {
+        for( let operation of operations ) {
 
-            operation.execute(this.mainElement);
+            if(typeof operation === 'string'){
+                operation = text(operation);
+            }
 
+            operation.execute(this.el);
         }
     }
 
