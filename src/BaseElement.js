@@ -1,14 +1,26 @@
+import {DOMOperation} from "./DataActions";
+
 export default class BaseElement
 {
 
-    constructor(tagName)
+    constructor(tagName, children)
     {
-        this.tag = tagName;
         this.el = null;
-        this.config = {};
         this.children = {};
 
         this.parse(tagName);
+
+        const ref = children[0];
+
+        if(Array.isArray(ref) && ref[0] instanceof DOMOperation){
+            this.set(ref);
+        }else if(typeof ref === 'string'){
+            this.block.setReference(ref, this);
+        }
+
+        if(!!children){
+            this.setChildren(children);
+        }
     }
 
     parse(tagName)
@@ -16,7 +28,6 @@ export default class BaseElement
         let tag = null;
         let id = null;
         let classes = null;
-        let classList = [];
 
         if(!tagName)
         {
@@ -57,6 +68,15 @@ export default class BaseElement
             this.setChildren([element]);
         }
 
+    }
+
+    set(...operations)
+    {
+        for( const operation of operations ) {
+
+            operation.execute(this.mainElement);
+
+        }
     }
 
     setChildren(childrenArray)

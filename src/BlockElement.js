@@ -36,16 +36,7 @@ export default class BlockElement
                 const element = this.ref(itemIndex);
                 let operations = config[itemIndex];
 
-                if(!Array.isArray(operations))
-                {
-                    operations = [operations];
-                }
-
-                for( const operation of operations ) {
-
-                    operation.execute(this.mainElement);
-
-                }
+                element.set(operations);
             }
         }
 

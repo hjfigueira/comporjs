@@ -1,3 +1,3 @@
-export * from "facades";
+export * from './facades'
 
-export * from "./DataActions";
+export * from "./functions";
