@@ -3,12 +3,12 @@ import BaseElement from "./BaseElement";
 
 export function e(tag, ref, ...children)
 {
-    let el = new BaseElement(tag);
+    const el = new BaseElement(tag);
 
     if(typeof ref == "object"){
         children.unshift(ref);
     }else{
-        el.var(ref);
+        this.block.setReference(ref, el);
     }
 
     if(!!children){
@@ -17,11 +17,7 @@ export function e(tag, ref, ...children)
     return el;
 }
 
-export function block(tag, ...children)
+export function block(fn)
 {
-    let el = new BlockElement(tag);
-    if(!!children){
-        el.setChildren(children);
-    }
-    return el;
+    return new BlockElement(fn);
 }

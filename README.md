@@ -12,7 +12,8 @@ So first you should use the block function to start, well, a block. Then, nestin
 function call, you will be able to build the block structure.
 
 ```javascript
-let template = block('div.container-fluid',
+let template = block( e => 
+    e('div.container-fluid',
           e('div.row',
               e('div.col-md-12',
                   e('div#main-image',
@@ -28,7 +29,8 @@ let template = block('div.container-fluid',
                   e('button.btn.btn-primary.btn-lg.btn-block','btnGoogle').text('Login com Google')
               )
           )
-      );
+      )
+    );
 ```
 
 ### references

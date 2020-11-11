@@ -3,9 +3,9 @@ export default class BaseElement
 
     constructor(tagName)
     {
+        this.tag = tagName;
         this.el = null;
         this.config = {};
-        this.reference = false;
         this.children = {};
 
         this.parse(tagName);
@@ -56,12 +56,6 @@ export default class BaseElement
         return this;
     };
 
-    var(identifier)
-    {
-        this.reference = identifier;
-        return this;
-    };
-
     attr(attribute, value)
     {
         if(!value){
@@ -71,13 +65,6 @@ export default class BaseElement
         }
         return this;
     }
-
-    clone()
-    {
-        let clone = this.cloneNode(true);
-        BaseElement(clone,this.config);
-        return clone
-    };
 
     append(element)
     {
@@ -93,14 +80,22 @@ export default class BaseElement
         for(let index in childrenArray)
         {
             let item = childrenArray[index];
-
-            if(!!item.reference)
-            {
-                this.children[item.reference] = item;
-            }
             this.el.append(item.el);
             this._mergeReferences(item);
+        }
+    }
 
+    on(event, fn)
+    {
+        this.el.addEventListener(event, fn);
+    }
+
+    applyEvents(events)
+    {
+        for(const eventName of Object.keys(events))
+        {
+            const eventHandler = events[eventName];
+            this.on(eventName, eventHandler);
         }
     }
 
