@@ -50,22 +50,6 @@ export default class BaseElement
         }
     };
 
-    text(string)
-    {
-        this.el.innerText = string;
-        return this;
-    };
-
-    attr(attribute, value)
-    {
-        if(!value){
-            this.el.removeAttribute(attribute);
-        }else{
-            this.el.setAttribute(attribute, value);
-        }
-        return this;
-    }
-
     append(element)
     {
         if(element instanceof BaseElement)
@@ -82,20 +66,6 @@ export default class BaseElement
             let item = childrenArray[index];
             this.el.append(item.el);
             this._mergeReferences(item);
-        }
-    }
-
-    on(event, fn)
-    {
-        this.el.addEventListener(event, fn);
-    }
-
-    applyEvents(events)
-    {
-        for(const eventName of Object.keys(events))
-        {
-            const eventHandler = events[eventName];
-            this.on(eventName, eventHandler);
         }
     }
 

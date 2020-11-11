@@ -34,22 +34,16 @@ export default class BlockElement
             for(const itemIndex of Object.keys(config))
             {
                 const element = this.ref(itemIndex);
-                let values = config[itemIndex];
+                let operations = config[itemIndex];
 
-                if(!Array.isArray(values))
+                if(!Array.isArray(operations))
                 {
-                    values = [values];
+                    operations = [operations];
                 }
 
-                for( const value of values ) {
+                for( const operation of operations ) {
 
-                    if(typeof value === "string"){
-                        element.text(value); continue;
-                    }
-
-                    if(typeof value === "object" && typeof value.length === "undefined"){
-                        element.applyEvents(value); continue;
-                    }
+                    operation.execute(this.mainElement);
 
                 }
             }
