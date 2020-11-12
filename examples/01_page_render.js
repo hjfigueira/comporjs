@@ -28,20 +28,28 @@ export class LoginPage extends BasePage{
     {
         this.styles = './css/loginPage.css';
 
-        this.template = block('div.container-fluid',
-            e('div.row',
-                e('div.col-md-12',
-                    e('div#main-image',
-                        e('img.image').attr('src', './img/logo.jpg'),
+        this.template = block( (e) =>
+            e('div.container-fluid',
+                e('div.row',
+                    e('div.col-md-12',
+                        e('div#main-image',
+                            e('img.image').attr('src', './img/logo.jpg'),
+                        ),
+                        e('h1.title').text('Title'),
+                        show( false, () => e('small.subtitle').text('Subtitle') )
+                    )
+                ),
+                repeat ( [1,2,3] , (item) =>
+                    e('div.row',
+                        e('div.col-md-12',
+                            e('button.btn.btn-primary.btn-lg.btn-block', ['Login com Facebook']),
+                            e('button.btn.btn-primary.btn-lg.btn-block', ['Login com Google'])
+                        )
                     ),
-                    e('h1.title').text('Title'),
-                    e('small.subtitle').text('Subtitle'),
-                )
-            ),
-            e('div.row',
-                e('div.col-md-12',
-                    e('button.btn.btn-primary.btn-lg.btn-block','btnFacebook').text('Login com Facebook'),
-                    e('button.btn.btn-primary.btn-lg.btn-block','btnGoogle').text('Login com Google')
+                () =>
+                    e('div.row',
+                        e('div.row',[ 'No results to show' ])
+                    )
                 )
             )
         );
