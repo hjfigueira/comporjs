@@ -13,7 +13,7 @@ export default class BaseElement
 
         const ref = children[0];
 
-        if(Array.isArray(ref) && ref[0] instanceof DOMOperation){
+        if(Array.isArray(ref)){
             this.set(...ref);
             children.shift();
         }else if(typeof ref === 'string'){
