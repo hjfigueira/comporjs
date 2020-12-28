@@ -35,7 +35,7 @@ export default class BlockElement
             {
                 const element = this.ref(itemIndex);
                 let operations = config[itemIndex];
-                
+
                 element.set(operations);
             }
         }
@@ -46,6 +46,18 @@ export default class BlockElement
     setReference(identifier, instance)
     {
         this.references[identifier] = instance;
+    }
+
+    getReference(identifier)
+    {
+        return this.references[identifier];
+    }
+
+
+    append(identifier,element)
+    {
+        let object = this.getReference(identifier);
+        object.el.append(element);
     }
 
 }
